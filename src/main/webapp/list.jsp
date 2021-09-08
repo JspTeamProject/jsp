@@ -100,8 +100,14 @@
     const modifyForm = document.querySelector(".modifyForm");
 
     const doModify = () => {
-        newId.value = prompt("새 아이디를 입력 해 주세요");
+        const input = prompt("새 아이디를 입력 해 주세요");
+        if (input) {
+            newId.value = input;
             modifyForm.submit();
+        } else {
+            return false;
+        }
+
     }
     const doDelete = () => {
         if (confirm("정말 삭제하시겠습니까?")) {
