@@ -101,11 +101,7 @@
 
     const doModify = () => {
         newId.value = prompt("새 아이디를 입력 해 주세요");
-        if(newId.value){
-            return false;
-        }else {
             modifyForm.submit();
-        }
     }
     const doDelete = () => {
         if (confirm("정말 삭제하시겠습니까?")) {
