@@ -1,16 +1,84 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: KENKEN0803
-  Date: 2021-09-08
-  Time: 오후 5:33
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 
-</body>
-</html>
+
+<%
+    Connection  conn = null;
+    String server = "localhost"; // MySQL ìë² ì£¼ì
+    String database = "db01"; // MySQL DATABASE ì´ë¦
+    String user_name = "root"; //  MySQL ìë² ìì´ë
+    String password = "2754"; // MySQL ìë² ë¹ë°ë²í¸
+
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    try {
+        conn = DriverManager.getConnection("jdbc:mysql://" + server + "/" + database + "?useSSL=false", user_name, password);
+        System.out.println("jdbc:mysql://" + server + "/" + database + "?useSSL=false" + user_name + password);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+%>
+
+
+<%--<%@include file="dbconn.jsp" %>--%>
+
+<%
+    request.setCharacterEncoding("UTF-8");
+	
+	String id = request.getParameter("id");
+	String name = request.getParameter("name");
+	
+
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+    
+    int result = 0;
+
+    try {
+        String sql = "insert into member(id,name) values(?,?)";
+        
+        preparedStatement = conn.prepareStatement(sql);
+        
+        preparedStatement.setString(1, id);
+        preparedStatement.setString(2, name);
+        
+        result = preparedStatement.executeUpdate();
+        
+		if(result != 0){		
+%>
+		<script>
+			alert("회원가입 성공하셨습니다");
+			location.href="index.jsp";
+		</script>
+<%			
+		}else{
+%>
+			<script>
+				alert("회원가입 실패하셨습니다");
+				location.href="index.jsp";
+			</script>
+<%				
+		}
+        
+    } catch (SQLException e) {
+        out.print(e.getMessage());
+%>
+		<script>
+			alert("ERROR");
+		</script>
+<%        
+        
+    } finally {
+        if (preparedStatement != null) preparedStatement.close();
+        if (conn != null) conn.close();
+        if (resultSet != null) resultSet.close();
+    }
+%>
