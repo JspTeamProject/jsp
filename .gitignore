@@ -1,2 +1,9 @@
+
+/target/
+.classpath
+.metadata/
+.project
+.settings/
+
 /src/test/
 /target/
