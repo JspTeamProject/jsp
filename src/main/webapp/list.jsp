@@ -92,6 +92,7 @@
         }
     %>
 </table>
+<a href="index.jsp">홈페이지로 돌아가기</a>
 <script>
     const newId = document.querySelector(".newId");
     const mod = document.querySelector("#mod");
@@ -107,7 +108,6 @@
         } else {
             return false;
         }
-
     }
     const doDelete = () => {
         if (confirm("정말 삭제하시겠습니까?")) {
