@@ -12,6 +12,7 @@
     String user_name = "root"; //  MySQL 서버 아이디
     String password = "1234"; // MySQL 서버 비밀번호
 
+    request.setCharacterEncoding("UTF-8");
     String loginID = request.getParameter("id");
     String loginName = request.getParameter("name");
 
@@ -26,7 +27,6 @@
     } catch (SQLException e) {
         e.printStackTrace();
     }
-    request.setCharacterEncoding("UTF-8");
 
     Statement statement = null;
     ResultSet resultSet = null;
