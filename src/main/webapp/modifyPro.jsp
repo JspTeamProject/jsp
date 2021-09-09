@@ -15,7 +15,7 @@
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
     try {
-        String sql = "update test set id = ? where id = ?";
+        String sql = "update member set id = ? where id = ?";
         preparedStatement = conn.prepareStatement(sql);
         preparedStatement.setString(1, newId);
         preparedStatement.setString(2, oldId);

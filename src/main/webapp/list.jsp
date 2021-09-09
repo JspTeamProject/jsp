@@ -53,7 +53,7 @@
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            String sql = "select * from test";
+            String sql = "select * from member";
             preparedStatement = conn.prepareStatement(sql);
 
             resultSet = preparedStatement.executeQuery();
