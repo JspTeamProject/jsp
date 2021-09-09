@@ -19,7 +19,7 @@
     table {
         margin: auto;
         width: 50%;
-        border: 1px solid black;
+        border: 1px solid salmon;
     }
 
     th {
@@ -37,6 +37,10 @@
 
     .btn {
         width: 100%;
+        height: 100%;
+        background: salmon;
+        border: none;
+        border-radius: 5px;
     }
 </style>
 <body>
@@ -53,7 +57,7 @@
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            String sql = "select * from test";
+            String sql = "select * from member";
             preparedStatement = conn.prepareStatement(sql);
 
             resultSet = preparedStatement.executeQuery();

@@ -13,7 +13,7 @@
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
     try {
-        String sql = "delete from test where id =?";
+        String sql = "delete from member where id =?";
         preparedStatement = conn.prepareStatement(sql);
         preparedStatement.setString(1, id);
         preparedStatement.executeUpdate();
