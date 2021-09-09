@@ -8,10 +8,10 @@
 
 <%
     Connection  conn = null;
-    String server = "localhost"; // MySQL ìë² ì£¼ì
-    String database = "db01"; // MySQL DATABASE ì´ë¦
-    String user_name = "root"; //  MySQL ìë² ìì´ë
-    String password = "2754"; // MySQL ìë² ë¹ë°ë²í¸
+    String server = "localhost";
+    String database = "db01";
+    String user_name = "root";
+    String password = "1234";
 
     try {
         Class.forName("com.mysql.jdbc.Driver");
@@ -26,7 +26,6 @@
         e.printStackTrace();
     }
 %>
-
 
 <%--<%@include file="dbconn.jsp" %>--%>
 

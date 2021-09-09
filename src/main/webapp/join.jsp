@@ -13,7 +13,7 @@
 	 position:absolute;
   width:400px;
   height:400px;
-  padding: 30px, 20px;
+  padding: 30px 20px;
   background-color:#FFFFFF;
   text-align:center;
   top:40%;
@@ -53,7 +53,7 @@
   transition: 0.4s;
   display:inline;
 }
-}
+
 </style>
 </head>
 <body>
@@ -64,7 +64,7 @@
 		<input type="text" name="id" class="input" placeholder="아이디">
 	</div>
 	<div class="textForm">
-		<input type="text" name="name" class="input"placeholder="이름">
+		<input type="text" name="name" class="input" placeholder="이름">
 	</div>
 	<div>
 		<input type="submit" value="회원가입"  class="btn">
